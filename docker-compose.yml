@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  nodejs:
+    container_name: htf-2020_game-web-tech_nodejs
+    image: htf-2020_game-web-tech_nodejs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      # App port
+      - 80:3001
+      # Inspect port
+      - 5850:5850
+    volumes:
+      - ./src:/dist/src:delegated
+
+      # Block local modules
+      - /dist/node_modules
