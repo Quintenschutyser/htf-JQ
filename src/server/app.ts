@@ -4,6 +4,7 @@ import Cors from 'cors';
 import Helmet from 'helmet';
 import Compression from 'compression';
 import Path from 'path';
+import stories from '../../stories.json'
 
 class App {
 	public instance: Application;
@@ -58,6 +59,13 @@ class App {
 		this.instance.get('/json', function (req, res) {
 			res.sendFile(Path.join(__dirname, '../../', 'stories.json'));
 		});
+		this.instance.get('/json/:id', function (req, res) {
+			console
+			res.json(stories.find((story) => {
+				return +req.params.id === story.id
+
+			}));
+		})
 		this.instance.get('/joinsession', function (req, res) {
 			res.sendFile(Path.join(__dirname, '../app/JoinSession', 'join.html'));
 		});
