@@ -46,7 +46,10 @@ class App {
 		this.instance.use(Express.static(Path.join(__dirname, './public')));
 	}
 
+
 	private initializeRoutes() {
+
+		var rand = Math.floor((Math.random() * 10) + 1);
 		this.instance.get('/ping', function (req, res) {
 			return res.send('pong');
 		});
@@ -56,13 +59,13 @@ class App {
 		this.instance.get('/main', function (req, res) {
 			res.sendFile(Path.join(__dirname, '../app/Main', 'main.html'));
 		});
+	//	this.instance.get('/json', function (req, res) {
+	//		res.sendFile(Path.join(__dirname, '../../', 'stories.json'));
+	//	});
 		this.instance.get('/json', function (req, res) {
-			res.sendFile(Path.join(__dirname, '../../', 'stories.json'));
-		});
-		this.instance.get('/json/:id', function (req, res) {
 			console
 			res.json(stories.find((story) => {
-				return +req.params.id === story.id
+				return +rand === story.id
 
 			}));
 		})
