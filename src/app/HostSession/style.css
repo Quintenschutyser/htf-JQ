@@ -1,0 +1,9 @@
+div {
+    text-align: center;
+    color:white;
+}
+body {
+    background-image:  url("../Darkwoods.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
