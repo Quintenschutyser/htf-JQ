@@ -42,7 +42,7 @@ class App {
 
 	private initializeStaticFileHosting(): void {
 		this.instance.use(Express.static(Path.join(__dirname, '../app')));
-		// this.instance.use(Express.static(Path.join(__dirname, './public')));
+		this.instance.use(Express.static(Path.join(__dirname, './Images')));
 		this.instance.use(Express.static(Path.join(__dirname, './public')));
 	}
 
