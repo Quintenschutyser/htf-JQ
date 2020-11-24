@@ -40,6 +40,8 @@ class App {
 	}
 
 	private initializeStaticFileHosting(): void {
+		this.instance.use(Express.static(Path.join(__dirname, '../app')));
+		// this.instance.use(Express.static(Path.join(__dirname, './public')));
 		this.instance.use(Express.static(Path.join(__dirname, './public')));
 	}
 
@@ -54,7 +56,10 @@ class App {
 
 		this.instance.get('/test', function (req, res) {
 			res.sendFile(Path.join(__dirname, '../app', 'test.html'));
-		});		
+		});	
+		this.instance.get('/main', function (req, res) {
+			res.sendFile(Path.join(__dirname, '../app/Main', 'main.html'));
+		});	
 	}
 }
 
