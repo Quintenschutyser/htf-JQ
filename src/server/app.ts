@@ -49,17 +49,21 @@ class App {
 		this.instance.get('/ping', function (req, res) {
 			return res.send('pong');
 		});
-
 		this.instance.get('/', function (req, res) {
 			res.sendFile(Path.join(__dirname, './public', 'index.html'));
 		});
-
-		this.instance.get('/test', function (req, res) {
-			res.sendFile(Path.join(__dirname, '../app', 'test.html'));
-		});	
 		this.instance.get('/main', function (req, res) {
 			res.sendFile(Path.join(__dirname, '../app/Main', 'main.html'));
-		});	
+		});
+		this.instance.get('/json', function (req, res) {
+			res.sendFile(Path.join(__dirname, '../../', 'stories.json'));
+		});
+		this.instance.get('/joinsession', function (req, res) {
+			res.sendFile(Path.join(__dirname, '../app/JoinSession', 'join.html'));
+		});
+		this.instance.get('/hostsession', function (req, res) {
+			res.sendFile(Path.join(__dirname, '../app/HostSession', 'host.html'));
+		});
 	}
 }
 
