@@ -51,6 +51,13 @@ class App {
 		this.instance.get('/', function (req, res) {
 			res.sendFile(Path.join(__dirname, './public', 'index.html'));
 		});
+
+		this.instance.get('/test', function (req, res) {
+			return (Express.static(Path.join(__dirname, '../app/test.html')));
+		});
+
+		
+		
 	}
 }
 
